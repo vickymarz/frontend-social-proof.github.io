@@ -1,0 +1,230 @@
+@font-face {
+	font-family: 'Spartan-Regular';
+	src: url(../Spartan/static/Spartan-Regular.ttf);
+}
+@font-face {
+	font-family: 'Spartan-Medium';
+	src: url(../Spartan/static/Spartan-Medium.ttf);
+}
+@font-face {
+	font-family: 'Spartan-Bold';
+	src: url(../Spartan/static/Spartan-Bold.ttf);
+}
+// Variables
+// primary colors
+$Very-Dark-Mangenta: hsl(300, 43%, 22%);
+$Soft-Pink: hsl(333, 80%, 67%);
+// neutral colors
+$White: hsl(0, 0%, 100%);
+$Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+$Light-Grayish-Magenta: hsl(300, 24%, 96%);
+
+$fontsize: 15px;
+$font-family: 'Spartan', sans-serif;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-bold: 700;
+
+// RESET
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: $fontsize;
+	font-family: $font-family;
+}
+body {
+	background: url(../images/bg-pattern-top-desktop.svg) top left no-repeat,
+		url(../images/bg-pattern-bottom-desktop.svg) bottom right no-repeat;
+	background-size: auto;
+	background-color: $White;
+}
+.container {
+	width: 90%;
+	max-width: 375px;
+	margin: 4rem auto;
+}
+img {
+	width: 100%;
+	max-width: 100%;
+}
+@for $i from 1 through 5 {
+	.stars > li:nth-child(#{$i})::before {
+		content: '';
+		display: flex;
+		background: url(../images/icon-star.svg) space;
+		max-width: 85px;
+		height: 30px;
+		margin: 0.5rem auto 0 auto;
+	}
+}
+section:first-child {
+	.header {
+		h1 {
+			color: $Very-Dark-Mangenta;
+			font-family: Spartan-Bold;
+			font-weight: $weight-bold;
+			margin-bottom: 1.5rem;
+			font-size: 2.5rem;
+			text-align: center;
+			line-height: 1;
+			letter-spacing: -5;
+		}
+		p {
+			color: $Dark-Grayish-Magenta;
+			font-family: Spartan-Medium;
+			font-weight: $weight-regular;
+			margin-bottom: 1.5rem;
+			text-align: center;
+			line-height: 1.5;
+		}
+	}
+	.rating {
+		.stars {
+			li {
+				background-color: $Light-Grayish-Magenta;
+				margin-bottom: 1rem;
+				padding: 10px;
+				text-align: center;
+				color: $Very-Dark-Mangenta;
+				font-family: Spartan-Bold;
+				font-weight: $weight-bold;
+				border-radius: 0.5rem;
+				list-style-type: none;
+			}
+		}
+	}
+}
+
+.buyer {
+	article {
+		background: $Very-Dark-Mangenta;
+		border-radius: 0.5rem;
+		margin-bottom: 1rem;
+		.buyer--margin {
+			width: 90%;
+			margin: 0 auto;
+			max-width: 375px;
+		}
+		.buyer__icon {
+			display: flex;
+			padding-top: 2rem;
+			img {
+				max-width: 2rem;
+				object-fit: contain;
+				border-radius: 2rem;
+			}
+			span {
+				line-height: 1.5;
+				margin-left: 1rem;
+				h3 {
+					font-family: Spartan-Medium;
+					font-weight: $weight-medium;
+					color: $White;
+					font-size: 0.7rem;
+				}
+				p {
+					font-family: Spartan-Regular;
+					font-weight: $weight-regular;
+					color: $Soft-Pink;
+					font-size: 0.7rem;
+					margin-bottom: initial;
+				}
+			}
+		}
+		.comment {
+			color: $Light-Grayish-Magenta;
+			font-family: Spartan-Regular;
+			font-weight: $weight-regular;
+			font-size: 0.7rem;
+			line-height: 2;
+			padding: 1.5rem 0;
+		}
+	}
+}
+
+@media only screen and (min-width: 962px) {
+	@for $i from 1 through 5 {
+		.stars > li:nth-child(#{$i})::before {
+			content: '';
+			display: block;
+			background: url(../images/icon-star.svg) space;
+			width: 100px;
+			height: 16px;
+			margin: 0.1rem 1rem;
+		}
+	}
+	@for $i from 1 through 3 {
+		.stars > li:nth-child(#{$i}) {
+			margin-left: ($i * 30px);
+		}
+	}
+	@for $i from 1 through 3 {
+		.buyer > article:nth-child(#{$i}) {
+			margin-top: ($i * 30px);
+		}
+	}
+
+	body {
+		background: url(../images/bg-pattern-top-desktop.svg) top left no-repeat,
+			url(../images/bg-pattern-bottom-desktop.svg) bottom right no-repeat;
+		background-size: auto;
+		background-color: $White;
+	}
+	.container {
+		width: 80%;
+		max-width: 1440px;
+		margin: 5rem auto;
+	}
+	section:first-child {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.header {
+			flex-basis: 35%;
+			h1 {
+				font-size: 2rem;
+				margin-bottom: 1.5rem;
+				text-align: initial;
+			}
+			p {
+				margin-bottom: 1.5rem;
+				text-align: initial;
+				font-size: 0.7rem;
+				line-height: 1.7;
+			}
+		}
+		.rating {
+			flex-basis: 45%;
+			.stars {
+				li {
+					max-width: 80%;
+					display: flex;
+					align-items: center;
+					background-color: $Light-Grayish-Magenta;
+					padding: 10px;
+					text-align: initial;
+					font-size: 0.7rem;
+				}
+			}
+		}
+	}
+	.buyer {
+		margin-top: 2rem;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		article {
+			width: 31%;
+			.buyer--margin {
+				width: 80%;
+				margin: 0 auto;
+				max-width: 1440px;
+			}
+		}
+	}
+}
